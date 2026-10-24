@@ -17,6 +17,13 @@
       "moreImages": [
         { "src": "PASTE-IMAGE-URL-1", "caption": "Live desktop after boot" },
         { "src": "PASTE-IMAGE-URL-2", "caption": "Live desktop after boot" }
+      ],
+      "links": [
+        {
+          "label": "Download the ISO",
+          "url": "https://github.com/zyphor-os/zyphor-os-desktop",
+          "note": "ISO download links are listed in the README"
+        }
       ]
     }
   ]
