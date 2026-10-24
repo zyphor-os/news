@@ -8,22 +8,30 @@
 <link rel="stylesheet" href="news.css">
 </head>
 <body>
-<header class="bar"><a class="brand" href="index.html">Zyphor OS News</a><a class="here" href="index.html">News</a></header>
+<header class="bar">
+  <a class="brand" href="index.html">Zyphor OS News</a>
+  <a class="here" href="index.html">News</a>
+  <a class="here" href="https://zyphor-os.github.io">Back To Website</a>
+</header>
 <main>
   <a class="back" href="index.html">← Back to news</a>
   <p id="status" role="status">Loading story…</p>
   <article id="story" class="article"></article>
   <section id="more" class="more"></section>
+  <section id="links" class="more"></section>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
 $(function () {
   var id = new URLSearchParams(location.search).get('id');
-  function fmt(d) { return new Date(d).toLocaleDateString('en', {year:'numeric', month:'long', day:'numeric'}); }
+
+  function fmt(d) {
+    return new Date(d).toLocaleDateString('en', {year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'});
+  }
 
   function initials(name) {
     return $('<span class="avatar avatar-fallback" aria-hidden="true">')
-      .text(name.split(/\s+/).map(function (w) { return w.charAt(0); }).slice(0, 2).join('').toUpperCase());
+      .text(String(name || '?').split(/\s+/).map(function (w) { return w.charAt(0); }).slice(0, 2).join('').toUpperCase());
   }
 
   function byline(n) {
@@ -40,8 +48,17 @@ $(function () {
     return $b;
   }
 
+  function hero(n) {
+    var $img = $('<img class="hero-img reveal">').attr({alt: n.title});
+    $img.on('error', function () { $(this).replaceWith($('<div class="hero-img hero-missing reveal in" role="img">').attr('aria-label', n.title)); });
+    if (n.featuredImage) { $img.attr('src', n.featuredImage); } else { $img.trigger('error'); }
+    return $img;
+  }
+
+  function isExternal(url) { return /^https?:\/\//i.test(url); }
+
   $.getJSON('news.json').done(function (data) {
-    var n = $.grep(data.news, function (x) { return x.id === id; })[0];
+    var n = $.grep(data.news || [], function (x) { return String(x.id) === id; })[0];
     if (!n) { $('#status').text('Story not found. Return to the news list and pick a story.'); return; }
     document.title = n.title + ' — Zyphor OS';
     $('#status').remove();
@@ -50,9 +67,9 @@ $(function () {
     $('<span class="tag reveal">').text(n.category).appendTo($s);
     $('<h1 class="reveal">').text(n.title).appendTo($s);
     byline(n).addClass('reveal').appendTo($s);
-    $('<img class="hero-img reveal">').attr({src: n.featuredImage, alt: n.title}).appendTo($s);
+    hero(n).appendTo($s);
     $('<p class="summary reveal">').text(n.summary).appendTo($s);
-    $.each(n.content, function (i, para) { $('<p class="reveal">').text(para).appendTo($s); });
+    $.each(n.content || [], function (i, para) { $('<p class="reveal">').text(para).appendTo($s); });
 
     if (n.moreImages && n.moreImages.length) {
       var $m = $('#more');
@@ -60,14 +77,35 @@ $(function () {
       var $g = $('<div class="gallery">').appendTo($m);
       $.each(n.moreImages, function (i, im) {
         var $f = $('<figure class="reveal">').appendTo($g);
-        $('<img>').attr({src: im.src, alt: im.caption, loading: 'lazy'}).appendTo($f);
-        $('<figcaption>').text(im.caption).appendTo($f);
+        $('<img>').attr({src: im.src, alt: im.caption || '', loading: 'lazy'})
+          .on('error', function () { $f.remove(); }).appendTo($f);
+        if (im.caption) { $('<figcaption>').text(im.caption).appendTo($f); }
       });
+    } else {
+      $('#more').remove();
+    }
+
+    if (n.links && n.links.length) {
+      var $l = $('#links');
+      $('<h2 class="reveal">').text('Related links').appendTo($l);
+      var $ul = $('<ul class="link-list">').appendTo($l);
+      $.each(n.links, function (i, lk) {
+        if (!lk || !lk.url) { return; }
+        var ext = isExternal(lk.url);
+        var $li = $('<li class="reveal">').appendTo($ul);
+        var $a = $('<a class="link-item">').attr('href', lk.url).appendTo($li);
+        if (ext) { $a.attr({target: '_blank', rel: 'noopener noreferrer'}); }
+        $('<span class="link-label">').text(lk.label || lk.url).appendTo($a);
+        if (ext) { $('<span class="link-ext" aria-hidden="true">').text('↗').appendTo($a); }
+        if (lk.note) { $('<span class="link-note">').text(lk.note).appendTo($a); }
+      });
+    } else {
+      $('#links').remove();
     }
 
     $('.reveal').each(function (i) {
       var $el = $(this);
-      setTimeout(function () { $el.addClass('in'); }, 100 + i * 110);
+      setTimeout(function () { $el.addClass('in'); }, 100 + i * 90);
     });
   }).fail(function () {
     $('#status').text('Could not load news.json. Serve this folder over http (not file://).');
