@@ -10,8 +10,8 @@
 <body>
 <header class="bar">
   <a class="brand" href="index.html">Zyphor OS News</a>
-  <a class="here" href="https://zyphor-os.github.io/">Website</a>
   <a class="here" href="index.html">News</a>
+  <a class="here" href="https://zyphor-os.github.io">Back To Website</a>
 </header>
 <main>
   <h1 class="page-title">News</h1>
@@ -23,11 +23,21 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
 $(function () {
-  function fmt(d) { return new Date(d).toLocaleDateString('en', {year:'numeric', month:'long', day:'numeric'}); }
+  function fmt(d) {
+    return new Date(d).toLocaleDateString('en', {year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC'});
+  }
 
   function initials(name) {
     return $('<span class="avatar avatar-fallback" aria-hidden="true">')
-      .text(name.split(/\s+/).map(function (w) { return w.charAt(0); }).slice(0, 2).join('').toUpperCase());
+      .text(String(name || '?').split(/\s+/).map(function (w) { return w.charAt(0); }).slice(0, 2).join('').toUpperCase());
+  }
+
+  function cover(n, lazy) {
+    var $img = $('<img class="cover">').attr({alt: n.title, loading: lazy ? 'lazy' : 'eager'});
+    $img.on('error', function () { $(this).replaceWith($('<div class="cover cover-missing" role="img">').attr('aria-label', n.title)); });
+    return $img.attr('src', n.featuredImage || '').each(function () {
+      if (!n.featuredImage) { $(this).trigger('error'); }
+    });
   }
 
   function byline(n) {
@@ -47,7 +57,7 @@ $(function () {
   function story(n, lead) {
     var $a = $('<a class="story reveal">').toggleClass('lead', !!lead)
       .attr('href', 'news-details.html?id=' + encodeURIComponent(n.id));
-    $('<img class="cover">').attr({src: n.featuredImage, alt: n.title, loading: lead ? 'eager' : 'lazy'}).appendTo($a);
+    cover(n, !lead).appendTo($a);
     var $t = $('<div class="txt">').appendTo($a);
     $('<span class="tag">').text(n.category).appendTo($t);
     $(lead ? '<h2>' : '<h3>').text(n.title).appendTo($t);
@@ -57,7 +67,10 @@ $(function () {
   }
 
   $.getJSON('news.json').done(function (data) {
-    var items = data.news.slice().sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
+    var items = (data.news || []).slice().sort(function (a, b) {
+      var diff = new Date(b.date) - new Date(a.date);
+      return diff !== 0 ? diff : String(b.id).localeCompare(String(a.id));
+    });
     if (!items.length) { $('#status').text('No news yet. Add items to news.json.'); return; }
     $('#featured').append(story(items[0], true));
     $.each(items.slice(1), function (i, n) { $('#grid').append(story(n, false)); });
