@@ -1,18 +1,20 @@
 {
   "news": [
     {
-      "id": "202610240757",
-      "title": "Zyphor OS beta ISO is ready to test",
-      "category": "Release",
-      "date": "2026-10-20",
+      "id": "202610240847",
+      "title": "New Zyphor OS News Page",
+      "category": "Community",
+      "date": "2026-10-24",
       "author": "Mark Jason P. Espelita",
       "authorImage": "images/creator.jpg",
-      "featuredImage": "featured-images/placeholder.jpg",
-      "summary": "The first public beta ISO is available for testers on real hardware and virtual machines.",
+      "featuredImage": "featured-images/202610240847.png",
+      "summary": "Stay updated with the latest Zyphor OS releases, development progress, announcements, and community news through our new dedicated news page.",
       "content": [
-        "The beta ISO boots to a live desktop and includes the installer, first-boot setup and the default tools.",
-        "We are asking testers to try it in a virtual machine first, then on spare hardware, and report anything that looks wrong.",
-        "Bug reports with the output of the system info command are the most useful kind."
+        "We are introducing the new Zyphor OS News Page, a dedicated place where our community can stay informed about the latest developments across the project. From new releases and system improvements to application updates and important announcements, this page will help keep everyone connected with the progress of Zyphor OS.",
+        "As a community-driven, Linux-based operating system, Zyphor OS continues to evolve through ongoing development, testing, bug fixes, documentation improvements, and contributions from our community. We believe that keeping users informed is an important part of building a reliable and accessible operating system for everyone.",
+        "Through this news page, we will share release announcements, new features, development milestones, known issues, testing opportunities, and other updates that matter to our users and contributors.",
+        "Whether you are a long-time user, a new tester, a developer, or simply curious about Zyphor OS, we invite you to follow our updates and join us as the project continues to grow.",
+        "Thank you to everyone who supports Zyphor OS, reports bugs, shares feedback, contributes improvements, and helps make the project better. Every contribution and piece of feedback helps us move forward."
       ],
       "moreImages": []
     }
