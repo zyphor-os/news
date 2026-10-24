@@ -1,28 +1,27 @@
 add:
-	# Update website homepage
+	git add Makefile
+	git commit -m "chore: modified Makefile"
+
+	# Update homepage
 	git add index.html
 	git commit -m "feat(web): update homepage"
 
-	# Add featured images
-	git add featured-images/
-	git commit -m "assets(web): add featured images"
-
-	# Add website images
-	git add images/
-	git commit -m "assets(web): add website images"
-
-	# Add news details page
+	# Update news details page
 	git add news-details.html
-	git commit -m "feat(web): add news details page"
+	git commit -m "feat(web): update news details page"
 
-	# Add news styles
+	# Update news stylesheet
 	git add news.css
-	git commit -m "style(web): add news stylesheet"
+	git commit -m "style(web): update news stylesheet"
 
-	# Add news data
+	# Update news data
 	git add news.json
-	git commit -m "feat(web): add news data"
+	git commit -m "feat(web): update news data"
 
-	# Add website template configuration
+	# Update template configuration
 	git add template.json
-	git commit -m "config(web): add template configuration"
+	git commit -m "config(web): update template configuration"
+
+	# Add ISO placeholder image
+	git add featured-images/iso-placeholder.jpg
+	git commit -m "assets(web): add ISO placeholder image"
