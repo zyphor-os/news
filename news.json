@@ -1,6 +1,37 @@
 {
   "news": [
     {
+      "id": "202610240902",
+      "title": "New Refreshed ISO Release – Updated Debian and Zyphor OS Packages",
+      "category": "Release",
+      "date": "2026-10-24",
+      "author": "Mark Jason P. Espelita",
+      "authorImage": "images/creator.jpg",
+      "featuredImage": "featured-images/iso-placeholder.jpg",
+      "summary": "A refreshed Zyphor OS ISO is now available, featuring updated Debian packages and Zyphor OS components to provide a more up-to-date installation experience for new users and testers.",
+      "content": [
+        "We are releasing a refreshed ISO of Zyphor OS 2 'Ada Lovelace' LTS Reforged and Zyphor OS 3 'Bethany' LTS, bringing updated Debian packages and Zyphor OS components together in a new installation image. This refresh aims to provide users with a more up-to-date system right from installation.",
+        "The updated ISO incorporates newer available packages and improvements to the Zyphor OS package collection, helping keep the system aligned with ongoing development. Keeping installation media refreshed is an important part of maintaining a reliable and convenient experience for users who are installing or testing Zyphor OS.",
+        "For new installations, we recommend using the latest available ISO rather than an older image, so you can start with the most recent package updates and system improvements included in this release.",
+        "Existing users do not necessarily need to reinstall their systems to benefit from package updates. Depending on the packages and improvements included, they can update their installed systems through the appropriate package management tools and configured Zyphor OS repositories.",
+        "As always, we encourage testers to try the refreshed ISO in a virtual machine before installing it on physical hardware. Please report any installation issues, hardware compatibility problems, or unexpected behavior so we can continue improving the system.",
+        "Thank you to everyone supporting Zyphor OS through testing, feedback, bug reports, and contributions. Every update brings us another step forward in building a dependable, community-driven Linux-based operating system."
+      ],
+      "moreImages": [],
+      "links": [
+        {
+          "label": "Zyphor OS 2 'Ada Lovelace' LTS Reforged",
+          "url": "https://sourceforge.net/projects/zyphor-os-2-ada-lovelace/",
+          "note": "Zyphor OS 2 'Ada Lovelace' LTS Reforged Sourceforge Link"
+        },
+        {
+          "label": "Zyphor OS 3 'Bethany' LTS",
+          "url": "https://sourceforge.net/projects/zyphor-os-3-bethany-lts/",
+          "note": "Zyphor OS 3 'Bethany' LTS Sourceforge Link"
+        }
+      ]
+    },
+    {
       "id": "202610240847",
       "title": "New Zyphor OS News Page",
       "category": "Community",
@@ -16,7 +47,14 @@
         "Whether you are a long-time user, a new tester, a developer, or simply curious about Zyphor OS, we invite you to follow our updates and join us as the project continues to grow.",
         "Thank you to everyone who supports Zyphor OS, reports bugs, shares feedback, contributes improvements, and helps make the project better. Every contribution and piece of feedback helps us move forward."
       ],
-      "moreImages": []
+      "moreImages": [],
+      "links": [
+        {
+          "label": "Zyphor OS News Page",
+          "url": "https://zyphor-os.github.io/news/",
+          "note": "New Zyphor OS News Page link"
+        }
+      ]
     }
   ]
 }
