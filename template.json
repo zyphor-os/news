@@ -1,0 +1,23 @@
+{
+  "news": [
+    {
+      "id": "202610240757",
+      "title": "Zyphor OS beta ISO is ready to test",
+      "category": "Release",
+      "date": "2026-10-20",
+      "author": "Mark Jason P. Espelita",
+      "authorImage": "images/creator.jpg",
+      "featuredImage": "featured-images/placeholder.jpg",
+      "summary": "The first public beta ISO is available for testers on real hardware and virtual machines.",
+      "content": [
+        "The beta ISO boots to a live desktop and includes the installer, first-boot setup and the default tools.",
+        "We are asking testers to try it in a virtual machine first, then on spare hardware, and report anything that looks wrong.",
+        "Bug reports with the output of the system info command are the most useful kind."
+      ],
+      "moreImages": [
+        { "src": "PASTE-IMAGE-URL-1", "caption": "Live desktop after boot" },
+        { "src": "PASTE-IMAGE-URL-2", "caption": "Live desktop after boot" }
+      ]
+    }
+  ]
+}
