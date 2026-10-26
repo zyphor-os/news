@@ -55,6 +55,27 @@
           "note": "New Zyphor OS News Page link"
         }
       ]
+    },
+    {
+      "id": "202610261057",
+      "title": " Zyphor OS 3 \"Bethany\" LTS: zyphor-cli v4.0.1-r9-alpha has been released with a patch for Android Studio!",
+      "category": "Community",
+      "date": "2026-10-26",
+      "author": "Mark Jason P. Espelita",
+      "authorImage": "images/creator.jpg",
+      "featuredImage": "featured-images/placeholder.jpg",
+      "summary": "Zyphor OS 3 \"Bethany\" LTS: zyphor-cli v4.0.1-r9-alpha is out with an Android Studio patch. The setup now creates a proper launcher in your app menu and on the Desktop, and undo cleans it up.",
+      "content": [
+        "Zyphor OS 3 \"Bethany\" LTS: zyphor-cli v4.0.1-r9-alpha has been released with a patch for Android Studio! `zyphor setup dev android-studio` now adds an Android Studio launcher to your app menu and Desktop, and `zyphor setup dev undo android-studio` removes it again. Update to get the fix: `sudo zy system upgrade`."
+      ],
+      "moreImages": [],
+      "links": [
+        {
+          "label": "Zyphor CLI Codebase",
+          "url": "https://github.com/zyphor-os/zyphor-os-desktop/tree/main/pkg/v3/apps/zyphor-cli/usr/lib/zyphor",
+          "note": "Zyphor CLI Codebase Patch"
+        }
+      ]
     }
   ]
 }
