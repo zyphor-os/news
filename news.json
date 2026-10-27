@@ -1,6 +1,27 @@
 {
   "news": [
     {
+      "id": "202610270808",
+      "title": "Weekly ISO Refresh Schedule – Every Saturday",
+      "category": "Announcement",
+      "date": "2026-10-27",
+      "author": "Mark Jason P. Espelita",
+      "authorImage": "images/creator.jpg",
+      "featuredImage": "featured-images/iso-placeholder.jpg",
+      "summary": "Zyphor OS ISO refreshes are planned for every Saturday, bringing updated Debian packages and Zyphor OS tools and components to provide a more up-to-date installation experience.",
+      "content": [
+        "Starting with our new release schedule, Zyphor OS ISO refreshes will be published every Saturday. These refreshes will include updated Debian packages, Zyphor OS tools, and other related system components as they become available.",
+        "Our goal is to provide fresh installation images that include the latest available package updates and improvements, reducing the need for newly installed systems to download as many updates immediately after installation.",
+        "The weekly refresh schedule will cover both Zyphor OS 2 'Ada Lovelace' LTS Reforged and Zyphor OS 3 'Bethany' LTS, as applicable to each release and its development status.",
+        "Each refreshed ISO will reflect the package versions and improvements included at the time of its build. The availability of updates may vary depending on Debian package releases, Zyphor OS development, and testing results.",
+        "For new installations, we recommend downloading the latest available ISO. Existing users generally do not need to reinstall their systems, as available updates can be installed through their configured package management tools and Zyphor OS repositories.",
+        "As always, we encourage our community to test refreshed ISOs in virtual machines before installing them on physical hardware. Please report bugs, installation problems, and hardware compatibility issues to help us maintain a stable and reliable operating system.",
+        "Thank you to everyone supporting Zyphor OS through testing, feedback, and contributions. Our weekly ISO refresh schedule is another step toward keeping our community-driven Linux-based operating system up to date."
+      ],
+      "moreImages": [],
+      "links": []
+    },
+    {
       "id": "202610240902",
       "title": "New Refreshed ISO Release – Updated Debian and Zyphor OS Packages",
       "category": "Release",
